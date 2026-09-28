@@ -1,0 +1,231 @@
+/* ---------- 공통 / 모바일 ---------- */
+.showcase {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--odit-canvas);
+}
+
+.backdrop,
+.intro,
+.guide {
+  display: none;
+}
+
+/* 모바일에서는 목업용 래퍼를 레이아웃에서 없앤다 (DOM은 유지 → 앱 트리 재마운트 없음) */
+.deviceSlot,
+.deviceScaler {
+  display: contents;
+}
+
+.screenContent {
+  height: 100%;
+}
+
+/* ---------- PC 쇼케이스 ---------- */
+.showcase[data-mode='desktop'] {
+  display: grid;
+  /* 양쪽 칸을 같은 비율로 둬서 보조 영역이 있어도 기기가 브라우저 가로 중앙에 온다 */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 48px;
+  padding: var(--showcase-fit-padding) 32px;
+  overflow: hidden;
+  background-color: var(--showcase-bg);
+  background-image: linear-gradient(180deg, var(--showcase-bg-from) 0%, var(--showcase-bg) 60%);
+}
+
+/* 원본 크기: 목업을 줄이지 않고 바깥 영역 스크롤을 허용한다 */
+.showcase[data-mode='desktop'][data-view='original'] {
+  align-items: start;
+  overflow: auto;
+}
+
+.showcase[data-mode='desktop'] .backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+  background-image: var(--showcase-bg-image);
+  background-size: cover;
+  background-position: center;
+}
+
+/* 배경 이미지가 있을 때만 캔버스 색으로 살짝 덮어 가독성을 맞춘다 */
+.showcase[data-mode='desktop'] .backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--odit-canvas);
+  opacity: var(--showcase-overlay-opacity);
+}
+
+.graphic {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  opacity: var(--showcase-graphic-opacity);
+}
+
+.graphic path {
+  stroke: var(--odit-yellow-500);
+}
+
+.graphic circle {
+  fill: var(--odit-surface);
+  stroke: var(--odit-yellow-500);
+}
+
+.showcase[data-mode='desktop'] .deviceSlot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  grid-column: 2;
+}
+
+.showcase[data-mode='desktop'] .deviceScaler {
+  display: block;
+  width: max-content;
+  transform-origin: top left;
+}
+
+/* ---------- 왼쪽: 서비스 소개 ---------- */
+.showcase[data-mode='desktop'] .intro {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-self: end;
+  width: 100%;
+  max-width: 300px;
+}
+
+.showcase[data-mode='desktop'][data-view='original'] .intro,
+.showcase[data-mode='desktop'][data-view='original'] .guide {
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+.logo {
+  width: auto;
+  height: 40px;
+}
+
+.tagline {
+  margin-top: var(--space-6);
+  color: var(--odit-text-primary);
+}
+
+.description {
+  margin-top: var(--space-3);
+  color: var(--odit-text-muted);
+  word-break: keep-all;
+}
+
+.viewControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-8);
+  padding: var(--space-1);
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-full);
+  background: var(--odit-surface);
+}
+
+.viewControls button {
+  padding: 8px 12px;
+  border-radius: var(--radius-full);
+  color: var(--odit-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.viewControls button[aria-pressed='true'] {
+  background: var(--odit-yellow-300);
+  color: var(--odit-text-primary);
+}
+
+.scaleValue {
+  padding: 0 var(--space-2) 0 var(--space-1);
+  color: var(--odit-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.scrollHint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  color: var(--odit-yellow-700);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.scrollHint[data-hidden='true'] {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.mouse {
+  position: relative;
+  width: 16px;
+  height: 24px;
+  border: 1.5px solid currentColor;
+  border-radius: 8px;
+}
+
+.mouse::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 2px;
+  height: 5px;
+  margin-left: -1px;
+  border-radius: 1px;
+  background: currentColor;
+  animation: wheel 1.6s ease-in-out infinite;
+}
+
+@keyframes wheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mouse::after {
+    animation: none;
+  }
+}
+
+/* ---------- 오른쪽: 데모 가이드 ---------- */
+.showcase[data-mode='desktop'] .guide {
+  position: relative;
+  z-index: 1;
+  display: block;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: start;
+  width: 100%;
+  max-width: 320px;
+  max-height: calc(100dvh - var(--showcase-fit-padding) * 2);
+  overflow-y: auto;
+}

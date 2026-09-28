@@ -1,0 +1,32 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--app-inset-top) var(--app-gutter) var(--app-inset-bottom);
+  text-align: center;
+  background: var(--odit-canvas);
+}
+
+.code {
+  margin-bottom: var(--space-2);
+  color: var(--odit-yellow-500);
+}
+
+.desc {
+  color: var(--odit-text-muted);
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 48px;
+  margin-top: var(--space-5);
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-12);
+  background: var(--odit-yellow-300);
+}

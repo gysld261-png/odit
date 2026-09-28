@@ -1,0 +1,238 @@
+/*
+ * 오딧 디자인 토큰
+ * 출처: Figma 변수 `ODIT/그룹/이름` → CSS 변수 `--odit-그룹없이-이름` (예: ODIT/Brand/Yellow 300 → --odit-yellow-300)
+ * 컴포넌트에서는 hex 값을 직접 쓰지 않고 이 변수만 쓴다.
+ */
+:root {
+  /* Brand / Yellow */
+  --odit-yellow-50: #fff9e8;
+  --odit-yellow-100: #fff3c4;
+  --odit-yellow-300: #ffda74; /* 주요 버튼 · 활성 탭 */
+  --odit-yellow-500: #f6b400; /* 포인트 */
+  --odit-yellow-700: #a66f00; /* 노랑 계열 텍스트 */
+  --odit-yellow-900: #4c3800;
+
+  /* Support / Blue */
+  --odit-blue-50: #eff5fd;
+  --odit-blue-300: #9ebeeb;
+  --odit-blue-500: #5b8fd9;
+  --odit-blue-700: #3569ad;
+
+  /* Neutral */
+  --odit-canvas: #fffcf5;
+  --odit-surface: #ffffff; /* 카드 */
+  --odit-surface-soft: #f5f5f2; /* 비활성 */
+  --odit-border: #e4e3de;
+  --odit-text-primary: #1a1a1a;
+  --odit-text-muted: #737373;
+  --odit-overlay-light: #ffffff;
+
+  /* 화면 상단 그라데이션: Yellow 100 → Canvas */
+  --odit-gradient-top: linear-gradient(180deg, var(--odit-yellow-100) 0%, var(--odit-canvas) 100%);
+
+  /* Shadow (Figma Effect: ODIT/Shadow/Card, ODIT/Shadow/Float) */
+  --shadow-card: 0 6px 18px rgba(74, 56, 0, 0.08);
+  --shadow-float: 0 10px 24px -4px rgba(166, 112, 0, 0.18);
+
+  /* Font */
+  --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  /* 탄탄은 라이선스 확인 전이라 설치된 폰트로만 찾는다 (fonts.css 참고) */
+  --font-display: 'GamtanRoad Tantan', '감탄로드 탄탄체', var(--font-body);
+
+  /* Radius [제안] Figma의 7·9·15·17px 같은 값은 가장 가까운 토큰으로 맞춘다 */
+  --radius-6: 6px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-full: 999px;
+
+  /* Space: 4px 단위 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* 앱 화면 공통 좌우 여백 (Figma 프레임 기준 20px) */
+  --app-gutter: 20px;
+}
+
+/*
+ * 타이포 클래스 — Figma 텍스트 스타일 `ODIT 타입/그룹/이름 · 1줄|여러줄`과 1:1
+ * 이름 규칙: 기본 클래스 = 여러줄, `-1l` = 1줄 (line-height: 1)
+ * 여러줄 행간: Pretendard 17px 미만 1.5 / 17px 이상 1.3, 탄탄 1.2. 자간은 전부 0.
+ *
+ * 포인트/히어로 → .point-hero      포인트/기타 26 → .point-26     포인트/화면 → .point-screen
+ * 포인트/제목   → .point-title
+ * 제목/섹션     → .title-section   제목/카드      → .title-card
+ * 본문/읽기     → .body-read       본문/기본      → .body-base     본문/강조 → .body-strong
+ * 본문/작게     → .body-small      본문/작게 강조 → .body-small-strong
+ * UI/메타       → .ui-meta         UI/캡션        → .ui-caption    UI/라벨   → .ui-label
+ * UI/내비       → .ui-nav-1l       UI/내비 활성   → .ui-nav-active-1l
+ * 기타/N Bold   → .etc-N-bold-1l
+ * TODO: 탄탄 17·15, Pretendard 28·24 Bold는 Figma 스타일 이름을 확인한 뒤 추가한다.
+ */
+.point-hero,
+.point-hero-1l,
+.point-26,
+.point-26-1l,
+.point-screen,
+.point-screen-1l,
+.point-title,
+.point-title-1l {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.point-hero,
+.point-hero-1l {
+  font-size: 28px;
+}
+.point-26,
+.point-26-1l {
+  font-size: 26px;
+}
+.point-screen,
+.point-screen-1l {
+  font-size: 24px;
+}
+.point-title,
+.point-title-1l {
+  font-size: 20px;
+}
+
+.title-section,
+.title-section-1l {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.title-card,
+.title-card-1l {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.body-read,
+.body-read-1l {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.body-base,
+.body-base-1l {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.body-strong,
+.body-strong-1l {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.body-small,
+.body-small-1l {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.body-small-strong,
+.body-small-strong-1l {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.ui-meta,
+.ui-meta-1l {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.ui-caption,
+.ui-caption-1l {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.ui-label,
+.ui-label-1l {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.ui-nav-1l {
+  font-size: 11px;
+  font-weight: 500;
+}
+.ui-nav-active-1l {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.etc-12-bold-1l,
+.etc-13-bold-1l,
+.etc-14-bold-1l,
+.etc-15-bold-1l,
+.etc-18-bold-1l {
+  font-weight: 700;
+}
+.etc-12-bold-1l {
+  font-size: 12px;
+}
+.etc-13-bold-1l {
+  font-size: 13px;
+}
+.etc-14-bold-1l {
+  font-size: 14px;
+}
+.etc-15-bold-1l {
+  font-size: 15px;
+}
+.etc-18-bold-1l {
+  font-size: 18px;
+}
+
+/* 1줄 스타일은 전부 line-height: 1 (위 규칙보다 뒤에 둬서 덮어쓴다) */
+.point-hero-1l,
+.point-26-1l,
+.point-screen-1l,
+.point-title-1l,
+.title-section-1l,
+.title-card-1l,
+.body-read-1l,
+.body-base-1l,
+.body-strong-1l,
+.body-small-1l,
+.body-small-strong-1l,
+.ui-meta-1l,
+.ui-caption-1l,
+.ui-label-1l,
+.ui-nav-1l,
+.ui-nav-active-1l,
+.etc-12-bold-1l,
+.etc-13-bold-1l,
+.etc-14-bold-1l,
+.etc-15-bold-1l,
+.etc-18-bold-1l {
+  line-height: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,57 @@
+.page {
+  padding: var(--space-6) var(--app-gutter) var(--space-8);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--odit-yellow-700);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-16);
+  background: var(--odit-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.meta dt {
+  color: var(--odit-text-muted);
+}
+
+.meta dd {
+  margin: 0;
+  word-break: break-all;
+}
+
+.subTitle {
+  margin: var(--space-8) 0 var(--space-3);
+}
+
+.links {
+  border-top: 1px solid var(--odit-border);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 48px;
+  border-bottom: 1px solid var(--odit-border);
+}
+
+.links a > span:first-child {
+  flex-shrink: 0;
+}
+
+.path {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--odit-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

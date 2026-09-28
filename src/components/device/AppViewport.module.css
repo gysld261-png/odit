@@ -1,0 +1,31 @@
+.viewport {
+  position: relative;
+  overflow: hidden;
+  background: var(--odit-canvas);
+  isolation: isolate;
+}
+
+.viewport[data-mode='desktop'] {
+  position: absolute;
+  inset: 0;
+  --app-inset-top: var(--device-inset-top);
+  --app-inset-bottom: var(--device-inset-bottom);
+}
+
+.viewport[data-mode='mobile'] {
+  width: 100%;
+  max-width: var(--mobile-max-app-width);
+  margin: 0 auto;
+  height: 100vh; /* dvh 미지원 브라우저 fallback */
+  height: 100dvh;
+  --app-inset-top: env(safe-area-inset-top, 0px);
+  --app-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 비어 있을 때는 클릭을 막지 않는다. 띄우는 쪽에서 pointer-events: auto를 준다. */
+.portal {
+  position: absolute;
+  inset: 0;
+  z-index: 900;
+  pointer-events: none;
+}

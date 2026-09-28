@@ -1,0 +1,152 @@
+/* 모바일: 프레임과 스크린 박스를 없애고 children만 흐름에 남긴다 */
+.frame,
+.screen {
+  display: contents;
+}
+
+.deco {
+  display: none;
+}
+
+/* ---------- PC 목업 ---------- */
+.frame[data-mode='desktop'] {
+  position: relative;
+  display: block;
+  width: calc(var(--device-screen-w) + var(--device-bezel) * 2);
+  height: calc(var(--device-screen-h) + var(--device-bezel) * 2);
+  padding: var(--device-bezel);
+  border-radius: calc(var(--device-screen-radius) + var(--device-bezel));
+  background: var(--device-frame-color);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.14),
+    inset 0 0 0 4px #111110,
+    0 40px 80px -30px rgba(76, 56, 0, 0.45),
+    0 18px 36px -18px rgba(26, 26, 26, 0.35);
+}
+
+.frame[data-mode='desktop'] .screen {
+  position: relative;
+  display: block;
+  width: var(--device-screen-w);
+  height: var(--device-screen-h);
+  overflow: hidden;
+  border-radius: var(--device-screen-radius);
+  background: var(--odit-canvas);
+  /* 앱 안의 z-index가 목업 장식이나 바깥 영역과 섞이지 않게 쌓임 맥락을 새로 만든다 */
+  isolation: isolate;
+}
+
+/* 장식은 입력을 가로채지 않는다 */
+.frame[data-mode='desktop'] .deco {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- 상태바 ---------- */
+.statusBar {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--device-status-h);
+  color: #000;
+}
+
+.frame[data-mode='desktop'] .statusBar {
+  display: grid;
+  grid-template-columns: 1fr 126px 1fr;
+  align-items: center;
+  padding-top: 11px;
+  grid-auto-rows: 37px;
+}
+
+.time {
+  justify-self: center;
+  padding-top: 3px;
+  padding-left: 6px;
+  font-family: -apple-system, 'SF Pro Text', var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.island {
+  width: 126px;
+  height: 37px;
+  border-radius: var(--radius-full);
+  background: #000;
+}
+
+.systemIcons {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 6px;
+  padding-top: 3px;
+  padding-right: 6px;
+}
+
+/* ---------- 홈 인디케이터 ---------- */
+.homeIndicator {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  height: var(--device-home-h);
+}
+
+.homeBar {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 144px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--odit-text-primary);
+  transform: translateX(-50%);
+}
+
+/* ---------- 측면 버튼 (장식) ---------- */
+.buttons {
+  inset: 0;
+}
+
+.buttons > span {
+  position: absolute;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--device-frame-color);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.actionButton {
+  left: -3px;
+  top: 150px;
+  height: 32px;
+}
+
+.volumeUp {
+  left: -3px;
+  top: 210px;
+  height: 60px;
+}
+
+.volumeDown {
+  left: -3px;
+  top: 284px;
+  height: 60px;
+}
+
+.powerButton {
+  right: -3px;
+  top: 236px;
+  height: 96px;
+}
+
+.cameraControl {
+  right: -3px;
+  top: 560px;
+  height: 64px;
+}

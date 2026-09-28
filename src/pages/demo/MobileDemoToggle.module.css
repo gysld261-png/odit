@@ -1,0 +1,49 @@
+/* PC 쇼케이스에서는 기기 바깥 패널을 쓰므로 숨긴다 (AppViewport의 data-mode 기준) */
+[data-mode='desktop'] .root {
+  display: none;
+}
+
+.root {
+  position: absolute;
+  right: 12px;
+  /* 떠 있는 하단 내비(약 80px) 위에 둔다 */
+  bottom: calc(var(--app-inset-bottom) + 96px);
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.toggle {
+  padding: 7px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(26, 26, 26, 0.72);
+  color: var(--odit-surface);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.popover {
+  position: relative;
+  width: min(320px, calc(100vw - 24px));
+  max-height: 60dvh;
+  overflow-y: auto;
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-20);
+  background: var(--odit-surface);
+  box-shadow: var(--shadow-float);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  color: var(--odit-text-muted);
+  font-size: 22px;
+  line-height: 1;
+}

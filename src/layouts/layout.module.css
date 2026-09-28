@@ -1,0 +1,28 @@
+/*
+ * Auth / Main / Detail 레이아웃 공통 틀.
+ * 상단 --app-inset-top(PC 62px 상태바 자리 · 모바일 safe-area)을 비우고, 그 아래를 스크롤 영역으로 쓴다.
+ * 스크롤은 window가 아니라 이 .scroll 요소가 담당한다 (스크롤 위치 복원도 이 요소 기준).
+ */
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: var(--app-inset-top);
+  background: var(--odit-canvas);
+}
+
+.scroll {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--app-inset-bottom);
+}
+
+/* 떠 있는 하단 내비가 마지막 콘텐츠(배지 등)를 가리지 않게 내비 높이만큼 여백을 둔다 */
+.withBottomNav {
+  padding-bottom: calc(var(--app-inset-bottom) + var(--bottom-nav-space, 96px));
+}
