@@ -1,0 +1,12 @@
+.mascot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mascot img {
+  position: absolute;
+  max-width: none;
+}

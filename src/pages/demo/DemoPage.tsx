@@ -4,7 +4,7 @@ import logoUrl from '../../assets/logo/odit-logo.svg'
 import { APP_CONFIG } from '../../config/app'
 import { isPersonaId } from '../../config/demo'
 import { useDemo } from '../../hooks/useDemo'
-import { getStartPath, readReturnPath } from '../../routes/paths'
+import { readReturnPath, startNavigation } from '../../routes/paths'
 import { DemoGuide } from './DemoGuide'
 import styles from './DemoPage.module.css'
 
@@ -25,7 +25,12 @@ export function DemoPage() {
     if (!isPersonaId(persona) || handled.current === persona) return
     handled.current = persona
     const record = startPersona(persona, 'continue')
-    navigate(readReturnPath(location.state) ?? getStartPath(record), { replace: true })
+    const returnPath = readReturnPath(location.state)
+    if (returnPath) navigate(returnPath, { replace: true })
+    else {
+      const { to, state } = startNavigation(record)
+      navigate(to, { replace: true, state })
+    }
   }, [persona, startPersona, navigate, location.state])
 
   const invalidParam = persona !== null && !isPersonaId(persona)

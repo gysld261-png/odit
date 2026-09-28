@@ -3,6 +3,7 @@ import { Outlet } from 'react-router'
 import logoUrl from '../assets/logo/odit-logo.svg'
 import { AppViewport } from '../components/device/AppViewport'
 import { DeviceFrame } from '../components/device/DeviceFrame'
+import { ToastHost } from '../components/common/ToastHost'
 import { APP_CONFIG } from '../config/app'
 import { DEVICE_OUTER_HEIGHT, DEVICE_OUTER_WIDTH, SHOWCASE_CONFIG } from '../config/showcase'
 import { useDemo } from '../hooks/useDemo'
@@ -96,6 +97,7 @@ export function ShowcaseLayout() {
               <div key={personaId ?? 'none'} className={styles.screenContent}>
                 <Outlet />
               </div>
+              <ToastHost />
               <MobileDemoToggle />
             </AppViewport>
           </DeviceFrame>

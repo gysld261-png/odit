@@ -38,6 +38,26 @@ export interface ReturnState {
 }
 
 /**
+ * 환영 화면에 스플래시(ODIT? → DO IT!)부터 보여달라는 표시.
+ * 퍼소나 시작·처음부터 보기에서만 붙인다. 로그인 화면에서 뒤로 왔을 때는 스플래시를 다시 틀지 않는다.
+ */
+export interface SplashState {
+  showSplash: true
+}
+
+export const SPLASH_STATE: SplashState = { showSplash: true }
+
+export function wantsSplash(state: unknown): boolean {
+  return typeof state === 'object' && state !== null && 'showSplash' in state && state.showSplash === true
+}
+
+/** 시작 경로가 환영 화면이면 스플래시부터 보여준다 */
+export function startNavigation(record: PersonaRecord): { to: string; state?: SplashState } {
+  const to = getStartPath(record)
+  return to === paths.welcome ? { to, state: SPLASH_STATE } : { to }
+}
+
+/**
  * 로그인·퍼소나 선택 뒤 돌아갈 경로는 앱 내부 경로만 허용한다.
  * `//evil.com`, `https://…`, `javascript:` 같은 값은 버린다.
  */

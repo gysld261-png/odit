@@ -3,7 +3,12 @@ import { AuthLayout } from '../layouts/AuthLayout'
 import { DetailLayout } from '../layouts/DetailLayout'
 import { MainLayout } from '../layouts/MainLayout'
 import { ShowcaseLayout } from '../layouts/ShowcaseLayout'
+import { AuthMethodPage } from '../pages/auth/AuthMethodPage'
+import { LoginPage } from '../pages/auth/LoginPage'
+import { SignupPage } from '../pages/auth/SignupPage'
+import { WelcomePage } from '../pages/auth/WelcomePage'
 import { DemoPage } from '../pages/demo/DemoPage'
+import { OnboardingPage } from '../pages/onboarding/OnboardingPage'
 import { NotFoundPage } from '../pages/error/NotFoundPage'
 import { PlaceholderPage } from '../pages/PlaceholderPage'
 import { EntryRedirect } from './EntryRedirect'
@@ -27,16 +32,16 @@ export function AppRoutes() {
 
         <Route element={<GuestOnly />}>
           <Route element={<AuthLayout />}>
-            <Route path="welcome" element={<PlaceholderPage title="스플래시 · 환영" figma="2039:2003 · 2039:2872" />} />
-            <Route path="auth" element={<PlaceholderPage title="로그인 방식" figma="2039:2921" />} />
-            <Route path="login" element={<PlaceholderPage title="이메일 로그인" figma="2040:632" />} />
-            <Route path="signup" element={<PlaceholderPage title="회원가입" figma="2041:645" />} />
+            <Route path="welcome" element={<WelcomePage />} />
+            <Route path="auth" element={<AuthMethodPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<SignupPage />} />
           </Route>
         </Route>
 
         <Route element={<RequireSetup />}>
           <Route element={<AuthLayout />}>
-            <Route path="onboarding/:step" element={<PlaceholderPage title="온보딩" figma="2042:658 · 2043:684 · 2042:708" />} />
+            <Route path="onboarding/:step" element={<OnboardingPage />} />
           </Route>
         </Route>
 

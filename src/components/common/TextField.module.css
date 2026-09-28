@@ -1,0 +1,78 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 9px;
+  color: var(--odit-text-primary);
+  font-weight: 500;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  border: 1px solid var(--odit-border);
+  border-radius: 14px;
+  background: var(--odit-surface);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.box[data-height='52'] {
+  height: 52px;
+}
+
+/* 포커스: 2px 테두리가 되면서 글자가 1px 밀리지 않도록 안쪽 여백을 1px 줄인다 */
+.box:focus-within {
+  border: 2px solid var(--odit-yellow-500);
+  box-shadow: 0 0 0 4px rgba(246, 180, 0, 0.18);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 14px;
+  border: 0;
+  outline: none;
+  background: none;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.box:focus-within .input {
+  padding-left: 13px;
+}
+
+.input::placeholder {
+  color: var(--odit-text-muted);
+}
+
+.trailing {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 5px;
+}
+
+.badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeMark {
+  position: absolute;
+}
+
+.hint {
+  margin-top: 8px;
+}

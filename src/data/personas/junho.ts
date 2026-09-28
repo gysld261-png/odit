@@ -8,13 +8,12 @@ export const junhoMeta: PersonaMeta = {
   kindLabel: '신규 사용자',
   tagline: '드라마에서 본 역사가 궁금해 직접 찾아보는 사람',
   demoEmail: 'junho@odit.app',
+  /**
+   * TODO: 결정 필요 — Figma 가입 화면에 닉네임 입력란이 없다.
+   * [제안] 데모 기본값 "준호"를 쓴다. 닉네임 입력 단계를 새로 만들지 않는다.
+   */
+  defaultNickname: '준호',
 }
-
-/**
- * TODO: 결정 필요 — Figma 가입 화면에 닉네임 입력란이 없다.
- * [제안] 데모 기본값 "준호"를 쓴다. 닉네임 입력 단계를 새로 만들지 않는다.
- */
-export const JUNHO_DEFAULT_NICKNAME = '준호'
 
 /** 가입 전 상태에서 시작한다. 개인 기록(지도·보관함·배지)도 비어 있다. */
 export const junhoInitialRecord: PersonaRecord = {

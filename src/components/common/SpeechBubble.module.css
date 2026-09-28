@@ -1,0 +1,56 @@
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.bubble {
+  position: relative;
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--radius-16);
+  background: var(--odit-surface);
+  box-shadow: var(--shadow-card);
+  color: var(--odit-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* 작은 말풍선 (로그인·가입 화면): 12px 1줄, 모서리 14 */
+.wrap[data-size='sm'] .bubble {
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* 꼬리: 45° 돌린 흰 사각형을 말풍선 뒤에 둔다 (Figma bubble_tail) */
+.tail {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--odit-surface);
+  transform: rotate(-45deg);
+}
+
+.wrap[data-size='sm'] .tail {
+  width: 10px;
+  height: 10px;
+}
+
+.wrap[data-tail='bottom'] .tail {
+  left: 12px;
+  bottom: -4px;
+}
+
+.wrap[data-tail='left'] .tail {
+  left: -4px;
+  top: calc(50% - 6px);
+}
+
+/* 오른쪽 위 모서리를 뾰족하게 만드는 꼬리 (로그인·가입: 마스코트 얼굴 쪽) */
+.wrap[data-tail='right'] .tail {
+  right: 3px;
+  top: 2px;
+}

@@ -8,6 +8,7 @@ export const jiwooMeta: PersonaMeta = {
   kindLabel: '기존 사용자',
   tagline: '추천 피드에서 흥미로운 질문을 따라가는 사람',
   demoEmail: 'jiwoo@odit.app',
+  defaultNickname: '지우',
 }
 
 /**

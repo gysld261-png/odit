@@ -1,0 +1,55 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 100%;
+  color: var(--odit-text-primary);
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+  filter: brightness(0.97);
+}
+
+.button[data-size='cta'] {
+  height: 56px;
+  border-radius: var(--radius-16);
+  background: var(--odit-yellow-300);
+  box-shadow: var(--shadow-float);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.button[data-size='lg'] {
+  height: 51px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-12);
+  background: var(--odit-yellow-300);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.button[data-size='sm'] {
+  width: auto;
+  padding: 5px 8px;
+  border-radius: var(--radius-full);
+  background: var(--odit-surface);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.button:disabled {
+  border: 1px solid var(--odit-border);
+  background: var(--odit-surface-soft);
+  box-shadow: none;
+  color: var(--odit-text-muted);
+  cursor: not-allowed;
+}

@@ -36,6 +36,8 @@ export interface PersonaMeta {
   kindLabel: string
   /** 데모 가이드에 보이는 이용 목적 한 줄 */
   tagline: string
-  /** 로그인 화면 자동 입력용 데모 이메일 */
+  /** 로그인·가입 화면 자동 입력용 데모 이메일 */
   demoEmail: string
+  /** 가입할 때 쓰는 닉네임 (Figma 가입 화면에 닉네임 입력란이 없어서 데모 기본값을 쓴다) */
+  defaultNickname: string
 }

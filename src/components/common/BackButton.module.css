@@ -1,0 +1,9 @@
+/* 44px 터치 영역 안에 Figma icon_back(8×16, 좌 22 · 상태바 아래 14)이 오도록 둔다 */
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 4px;
+}

@@ -1,0 +1,111 @@
+/* Figma 02_auth_method. y는 상태바 아래 기준 */
+.head {
+  padding: 16px 24px 0;
+}
+
+.desc {
+  margin-top: 16px;
+  color: var(--odit-text-muted);
+}
+
+.hero {
+  position: relative;
+  flex-shrink: 0;
+  height: 248px;
+  margin: 29px var(--app-gutter) 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--odit-yellow-100);
+}
+
+.path {
+  position: absolute;
+  left: 18.5px;
+  top: 108.5px;
+  max-width: none;
+}
+
+.node {
+  position: absolute;
+  max-width: none;
+}
+
+.shadow {
+  position: absolute;
+  left: 115px;
+  top: 216px;
+  max-width: none;
+}
+
+.mascot {
+  position: absolute;
+  left: 115px;
+  top: 70px;
+}
+
+.bubble {
+  position: absolute;
+  left: 150px;
+  top: 24px;
+}
+
+.methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto var(--app-gutter) 0;
+  padding-top: 40px;
+}
+
+.method {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  border-radius: var(--radius-16);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.method > img,
+.method > .googleIcon {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.googleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.method[data-brand='kakao'] {
+  background: #fee500; /* 카카오 브랜드 가이드 색 — 토큰 밖 고정값 */
+  color: #191919;
+}
+
+.method[data-brand='apple'] {
+  background: var(--odit-text-primary);
+  color: var(--odit-surface);
+}
+
+.method[data-brand='google'] {
+  border: 1px solid var(--odit-border);
+  background: var(--odit-surface);
+}
+
+.method[data-brand='email'] {
+  border: 1px solid var(--odit-border);
+  background: var(--odit-canvas);
+}
+
+.terms {
+  color: var(--odit-text-muted);
+  text-align: center;
+}

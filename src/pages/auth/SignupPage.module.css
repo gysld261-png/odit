@@ -1,0 +1,150 @@
+/* Figma 04_signup. y는 상태바 아래 기준 */
+.head {
+  position: relative;
+  padding: 16px 24px 0;
+}
+
+.desc {
+  margin-top: 10px;
+  color: var(--odit-text-muted);
+}
+
+.character {
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.bubble {
+  margin-top: 16px;
+  margin-right: -2px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 31px var(--app-gutter) 0;
+}
+
+.rules {
+  display: flex;
+  gap: 24px;
+  padding-left: 4px;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--odit-text-muted);
+  transition: color 0.15s ease;
+}
+
+.rule img {
+  opacity: 0.35;
+  filter: grayscale(1);
+  transition:
+    opacity 0.15s ease,
+    filter 0.15s ease;
+}
+
+.rule[data-met='true'] {
+  color: var(--odit-yellow-700);
+}
+
+.rule[data-met='true'] img {
+  opacity: 1;
+  filter: none;
+}
+
+.message {
+  padding-left: 4px;
+  color: var(--odit-yellow-700);
+}
+
+.message[data-met='false'] {
+  color: var(--odit-text-muted);
+}
+
+.terms {
+  margin: 18px 0 0;
+  padding: 15px 15px 11px;
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-16);
+  background: var(--odit-surface);
+}
+
+.termAll,
+.termLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.termAll {
+  min-height: 22px;
+}
+
+.termDivider {
+  display: block;
+  height: 1px;
+  margin: 16px 0 5px;
+  background: var(--odit-border);
+}
+
+.termRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+}
+
+.termLabel {
+  gap: 12px;
+}
+
+.termDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: -12px;
+}
+
+.check {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  border: 1.5px solid var(--odit-border);
+  border-radius: 7px;
+  background: var(--odit-surface);
+}
+
+.check img {
+  position: absolute;
+  inset: -1.5px;
+  max-width: none;
+}
+
+/* 키보드 포커스가 숨긴 체크박스에 있을 때 보이는 표시 */
+.termAll:has(input:focus-visible) .check,
+.termLabel:has(input:focus-visible) .check {
+  outline: 2px solid var(--odit-blue-500);
+  outline-offset: 2px;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  color: var(--odit-text-muted);
+}
+
+.switch a {
+  color: var(--odit-text-primary);
+}

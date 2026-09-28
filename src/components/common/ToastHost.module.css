@@ -1,0 +1,36 @@
+/* Figma에 토스트 디자인이 없어 [제안] 짙은 캡슐형으로 둔다. 하단 CTA·내비 위에 뜬다. */
+.host {
+  position: absolute;
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  bottom: calc(var(--app-inset-bottom) + 108px);
+  z-index: 960;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  pointer-events: none;
+}
+
+.toast {
+  max-width: 100%;
+  padding: 13px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(26, 26, 26, 0.88);
+  color: var(--odit-surface);
+  text-align: center;
+  animation: toast-in 0.2s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}

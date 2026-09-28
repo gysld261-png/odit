@@ -1,0 +1,29 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-top: var(--app-inset-top);
+  padding-bottom: var(--app-inset-bottom);
+  background: linear-gradient(180deg, var(--odit-yellow-100) 0%, var(--odit-canvas) var(--gradient-stop));
+  background-color: var(--odit-canvas);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* 주요 버튼: 좌우 20, 홈 인디케이터 위 여백은 Figma 하단 링크 기준 */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--app-gutter) 22px;
+}
+
+.footer[data-spacing='tight'] {
+  padding-bottom: 16px;
+}

@@ -22,6 +22,24 @@
   padding-bottom: var(--app-inset-bottom);
 }
 
+/* 상태바 뒤까지 화면 배경을 까는 레이아웃(Auth) — 여백은 화면 안쪽(AuthScreen)이 준다 */
+.fullBleed {
+  padding-top: 0;
+}
+
+.noInsetBottom {
+  padding-bottom: 0;
+}
+
+/* PC 목업 안에서는 실제 아이폰처럼 스크롤바를 숨긴다 (스크롤 가능 여부는 기기 바깥 안내가 알려준다) */
+[data-mode='desktop'] .scroll {
+  scrollbar-width: none;
+}
+
+[data-mode='desktop'] .scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* 떠 있는 하단 내비가 마지막 콘텐츠(배지 등)를 가리지 않게 내비 높이만큼 여백을 둔다 */
 .withBottomNav {
   padding-bottom: calc(var(--app-inset-bottom) + var(--bottom-nav-space, 96px));

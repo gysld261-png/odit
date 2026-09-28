@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useDemo } from '../../hooks/useDemo'
-import { getStartPath, paths, readReturnPath } from '../../routes/paths'
+import { SPLASH_STATE, paths, readReturnPath, startNavigation } from '../../routes/paths'
 import type { PersonaId, PersonaMeta } from '../../types/demo'
 import styles from './DemoGuide.module.css'
 
@@ -27,21 +27,29 @@ export function DemoGuide({ variant, onAction }: DemoGuideProps) {
 
   const start = (id: PersonaId) => {
     const record = startPersona(id, 'continue')
-    navigate(returnPath ?? getStartPath(record), { replace: location.pathname === paths.demo })
+    const replace = location.pathname === paths.demo
+    if (returnPath) navigate(returnPath, { replace })
+    else {
+      const { to, state } = startNavigation(record)
+      navigate(to, { replace, state })
+    }
     setNotice(null)
     onAction?.()
   }
 
   const startFromSplash = (id: PersonaId) => {
     startPersona(id, 'fromSplash')
-    navigate(paths.welcome)
+    navigate(paths.welcome, { state: SPLASH_STATE })
     setNotice(null)
     onAction?.()
   }
 
   const reset = (persona: PersonaMeta) => {
     const record = resetPersona(persona.id)
-    if (persona.id === personaId) navigate(getStartPath(record), { replace: true })
+    if (persona.id === personaId) {
+      const { to, state } = startNavigation(record)
+      navigate(to, { replace: true, state })
+    }
     setNotice(`${persona.name}의 시연 데이터를 처음 상태로 되돌렸어요.`)
   }
 

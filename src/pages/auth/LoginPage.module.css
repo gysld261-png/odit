@@ -1,0 +1,92 @@
+/* Figma 03_login. y는 상태바 아래 기준 */
+.head {
+  position: relative;
+  padding: 16px 24px 0;
+}
+
+.desc {
+  margin-top: 10px;
+  color: var(--odit-text-muted);
+}
+
+/* 마스코트는 제목 오른쪽 위 (Figma x 292 · y 92, 말풍선은 왼쪽) */
+.character {
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.bubble {
+  margin-top: 20px;
+  margin-right: -2px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 39px var(--app-gutter) 0;
+}
+
+.forgot {
+  align-self: flex-end;
+  margin-top: -4px;
+  color: var(--odit-text-muted);
+}
+
+.error {
+  color: var(--odit-yellow-700);
+}
+
+.submit {
+  margin-top: 6px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 44px var(--app-gutter) 0;
+  color: var(--odit-text-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--odit-border);
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 21px;
+}
+
+.social {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.socialIcon {
+  position: absolute;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  color: var(--odit-text-muted);
+}
+
+.switch a {
+  color: var(--odit-text-primary);
+}

@@ -33,3 +33,15 @@ export interface SessionContextValue {
 }
 
 export const SessionContext = createContext<SessionContextValue | null>(null)
+
+export interface ToastMessage {
+  id: number
+  text: string
+}
+
+export interface ToastContextValue {
+  toasts: ToastMessage[]
+  showToast: (text: string) => void
+}
+
+export const ToastContext = createContext<ToastContextValue | null>(null)
