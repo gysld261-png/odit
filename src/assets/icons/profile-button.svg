@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ProfileButton" clip-path="url(#clip0_0_19)">
+<path id="ProfileBg" d="M16 31C24.8366 31 32 24.0604 32 15.5C32 6.93959 24.8366 0 16 0C7.16344 0 0 6.93959 0 15.5C0 24.0604 7.16344 31 16 31Z" fill="#FFFCF5"/>
+<path id="ProfileHead" d="M16 15.4225C18.2975 15.4225 20.16 13.6182 20.16 11.3925C20.16 9.16679 18.2975 7.3625 16 7.3625C13.7025 7.3625 11.84 9.16679 11.84 11.3925C11.84 13.6182 13.7025 15.4225 16 15.4225Z" fill="#4C3800"/>
+<path id="ProfileBody" d="M8.4 22.7463C8.4 18.662 11.568 16.3913 16 16.3913C20.432 16.3913 23.6 18.662 23.6 22.7463C23.6 23.2423 23.192 23.6375 22.68 23.6375H9.32C8.808 23.6375 8.4 23.2423 8.4 22.7463Z" fill="#4C3800"/>
+</g>
+<defs>
+<clipPath id="clip0_0_19">
+<rect width="32" height="31" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -17,6 +17,33 @@ const jobs = [
   })),
   // 마스코트 캐릭터 시트: 포즈 하나를 크게 잘라 쓰므로 원본 해상도를 유지한다
   { from: 'design-src/mascot-poses.png', to: 'src/assets/mascot/mascot-poses.webp', width: 1536 },
+
+  // 홈 (Figma HomeScreen)
+  { from: 'design-src/home/hero-bg.png', to: 'src/assets/home/hero-bg.webp', width: 1024 }, // 402×465 cover
+  ...['oppenheimer', 'prohibition', 'ibangik'].map((name) => ({
+    from: `design-src/home/path-${name}.png`,
+    to: `src/assets/home/path-${name}.webp`,
+    width: 128, // 61px 아이콘
+  })),
+  ...['troy', 'liberation', 'palace'].map((name) => ({
+    from: `design-src/home/trend-${name}.png`,
+    to: `src/assets/home/trend-${name}.webp`,
+    width: 720, // 345×180 카드 배경
+  })),
+  ...['obey', 'resign'].map((name) => ({
+    from: `design-src/home/debate-${name}.png`,
+    to: `src/assets/home/debate-${name}.webp`,
+    width: 280, // 130px 캐릭터
+  })),
+  ...['troy', 'goryeojang', 'hangul', 'turtleship'].map((name) => ({
+    from: `design-src/home/fact-${name}.png`,
+    to: `src/assets/home/fact-${name}.webp`,
+    width: 108, // 54px 아이콘
+  })),
+
+  // 이야기 상세 (Figma 03_story_detail)
+  { from: 'design-src/stories/oppenheimer-hero.png', to: 'src/assets/stories/oppenheimer-hero.webp', width: 820 }, // 402×240
+  { from: 'design-src/stories/oppenheimer-hearing.png', to: 'src/assets/stories/oppenheimer-hearing.webp', width: 740 }, // 362×236
 ]
 
 for (const job of jobs) {

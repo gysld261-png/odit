@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="302" height="76" viewBox="0 0 302 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ConnectionPath">
+<path id="MainPath" d="M12 58C48 58 47 18 83 18C119 18 119 58 155 58C191 58 192 18 222 18C254 18 257 52 290 52" stroke="#9FC1EC" stroke-width="4" stroke-linecap="round"/>
+<path id="BranchPath" d="M12 58C48 58 47 18 83 18" stroke="#F6B400" stroke-width="4" stroke-linecap="round"/>
+</g>
+</svg>
