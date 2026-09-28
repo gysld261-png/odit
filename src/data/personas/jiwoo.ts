@@ -26,4 +26,14 @@ export const jiwooInitialRecord: PersonaRecord = {
     profileCompleted: true,
   },
   signedIn: true,
+  progress: {
+    historyType: '시대 프로파일러',
+    // Figma 홈: "6개의 연결고리를 발견했어요!" · 연결 지도 노드 5개(영화·신화·항해·도시·정치)
+    weeklyConnectionCount: 6,
+    weeklyNodes: ['영화', '신화', '항해', '도시', '정치'],
+    // TODO(4단계): 지도 노드 12개·저장 12개·나중에 보기 3개를 실제 이야기 id로 채워 프로필 수치와 맞춘다
+    readStoryIds: [],
+    savedStoryIds: [],
+    votes: {},
+  },
 }

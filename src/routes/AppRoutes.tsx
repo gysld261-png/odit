@@ -8,6 +8,9 @@ import { LoginPage } from '../pages/auth/LoginPage'
 import { SignupPage } from '../pages/auth/SignupPage'
 import { WelcomePage } from '../pages/auth/WelcomePage'
 import { DemoPage } from '../pages/demo/DemoPage'
+import { HomePage } from '../pages/home/HomePage'
+import { ConnectionSelectPage } from '../pages/story/ConnectionSelectPage'
+import { StoryDetailPage } from '../pages/story/StoryDetailPage'
 import { OnboardingPage } from '../pages/onboarding/OnboardingPage'
 import { NotFoundPage } from '../pages/error/NotFoundPage'
 import { PlaceholderPage } from '../pages/PlaceholderPage'
@@ -47,7 +50,7 @@ export function AppRoutes() {
 
         <Route element={<RequireAuth />}>
           <Route element={<MainLayout />}>
-            <Route path="home" element={<PlaceholderPage title="홈" figma="2024:573 · 2049:3216" />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="explore" element={<PlaceholderPage title="탐색" figma="2024:778" />} />
             <Route path="search" element={<PlaceholderPage title="통합 검색 결과" figma="2049:769" />} />
             <Route path="map" element={<PlaceholderPage title="나의 역사 지도" figma="2024:878" />} />
@@ -55,11 +58,8 @@ export function AppRoutes() {
             <Route path="library" element={<PlaceholderPage title="보관함" figma="2049:895" />} />
           </Route>
           <Route element={<DetailLayout />}>
-            <Route path="stories/:storyId" element={<PlaceholderPage title="이야기 상세" figma="2024:666" />} />
-            <Route
-              path="stories/:storyId/connections"
-              element={<PlaceholderPage title="연결 선택" figma="2024:723" />}
-            />
+            <Route path="stories/:storyId" element={<StoryDetailPage />} />
+            <Route path="stories/:storyId/connections" element={<ConnectionSelectPage />} />
             <Route path="profile" element={<PlaceholderPage title="프로필" figma="2034:1121" />} />
             <Route path="pass" element={<PlaceholderPage title="오딧 패스 소개" figma="2034:1181" />} />
             <Route path="pass/plan" element={<PlaceholderPage title="요금제 선택" figma="2034:1228 · 2034:1259" />} />

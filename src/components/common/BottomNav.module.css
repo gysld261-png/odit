@@ -1,0 +1,74 @@
+/* Figma ODIT/BottomNav 402×88: 흰 캡슐(8·20·386×64) 위에 탭 4개(96×68 터치 영역) */
+.nav {
+  position: relative;
+  height: 88px;
+  pointer-events: none;
+}
+
+.surface {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 20px;
+  height: 64px;
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-24);
+  background: var(--odit-surface);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  padding: 0 4px;
+}
+
+.tab {
+  position: relative;
+  display: block;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.activeDeco img,
+.icon,
+.label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+}
+
+.bridge {
+  top: 9px;
+}
+
+.halo {
+  top: 0;
+}
+
+.indicator {
+  top: 4px;
+}
+
+.icon {
+  top: 28px;
+}
+
+.label {
+  top: 58px;
+  width: 100%;
+  color: var(--odit-text-muted);
+  text-align: center;
+}
+
+.tab[aria-current='page'] .icon {
+  top: 16px;
+}
+
+.tab[aria-current='page'] .label {
+  top: 61px;
+  color: var(--odit-text-primary);
+}

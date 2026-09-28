@@ -52,12 +52,30 @@ function isAccount(value: unknown): value is Account {
   )
 }
 
+const isStringArray = (value: unknown): value is string[] =>
+  Array.isArray(value) && value.every((item) => typeof item === 'string')
+
+function isProgress(value: unknown): boolean {
+  return (
+    isObject(value) &&
+    (value.historyType === null || typeof value.historyType === 'string') &&
+    typeof value.weeklyConnectionCount === 'number' &&
+    isStringArray(value.weeklyNodes) &&
+    isStringArray(value.readStoryIds) &&
+    isStringArray(value.savedStoryIds) &&
+    isObject(value.votes) &&
+    Object.values(value.votes).every((vote) => typeof vote === 'string')
+  )
+}
+
+/** 형태가 다르면(이전 버전 저장본 포함) null → 호출하는 쪽이 seed로 복구한다 */
 function isPersonaRecord(value: unknown): value is PersonaRecord {
   return (
     isObject(value) &&
     value.version === 1 &&
     typeof value.signedIn === 'boolean' &&
-    (value.account === null || isAccount(value.account))
+    (value.account === null || isAccount(value.account)) &&
+    isProgress(value.progress)
   )
 }
 

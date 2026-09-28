@@ -20,4 +20,13 @@ export const junhoInitialRecord: PersonaRecord = {
   version: 1,
   account: null,
   signedIn: false,
+  // 개인 기록은 비어 있다. 공개 콘텐츠(추천·화제·논쟁)는 그대로 보인다.
+  progress: {
+    historyType: null,
+    weeklyConnectionCount: 0,
+    weeklyNodes: [],
+    readStoryIds: [],
+    savedStoryIds: [],
+    votes: {},
+  },
 }

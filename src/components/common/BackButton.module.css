@@ -7,3 +7,12 @@
   height: 44px;
   margin-left: 4px;
 }
+
+/* 상세 헤더 "←  뒤로" (Figma: 화살표와 글자 사이 공백 두 칸) */
+.text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  color: var(--odit-text-primary);
+}

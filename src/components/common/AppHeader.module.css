@@ -1,0 +1,52 @@
+/* Type=Main: 402×51, 좌우 20 · 위아래 10 */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--app-gutter);
+}
+
+.logo {
+  height: 21px;
+  width: auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actions a,
+.actions button {
+  display: flex;
+}
+
+/* Type=Detail: 402×56, "←  뒤로" / "저장   공유" */
+.detail {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 var(--app-gutter);
+  background: var(--odit-surface);
+}
+
+.detailActions {
+  display: flex;
+  gap: 4px;
+  margin-right: -8px;
+}
+
+.detailActions button {
+  min-width: 36px;
+  height: 44px;
+  padding: 0 8px;
+  color: var(--odit-text-muted);
+}
+
+.detailActions button[data-active='true'] {
+  color: var(--odit-yellow-700);
+  font-weight: 600;
+}

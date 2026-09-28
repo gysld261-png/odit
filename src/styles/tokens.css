@@ -27,12 +27,19 @@
   --odit-text-muted: #737373;
   --odit-overlay-light: #ffffff;
 
+  /* 이야기 상세 칩 — Figma가 로고 글자색 계열을 쓴다 (토큰 목록 밖 값, 상세 칩 전용) */
+  --odit-chip-brown: var(--odit-yellow-900);
+  --odit-chip-green: #4d6a5e;
+  --odit-chip-orange: #d99323;
+
   /* 화면 상단 그라데이션: Yellow 100 → Canvas */
   --odit-gradient-top: linear-gradient(180deg, var(--odit-yellow-100) 0%, var(--odit-canvas) 100%);
 
   /* Shadow (Figma Effect: ODIT/Shadow/Card, ODIT/Shadow/Float) */
   --shadow-card: 0 6px 18px rgba(74, 56, 0, 0.08);
   --shadow-float: 0 10px 24px -4px rgba(166, 112, 0, 0.18);
+  /* Figma effect "cardshadow" (메인 화면 카드·한 줄 정리) */
+  --shadow-soft: 1px 1px 5px rgba(0, 0, 0, 0.1);
 
   /* Font */
   --font-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',

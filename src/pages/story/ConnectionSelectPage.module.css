@@ -1,0 +1,103 @@
+/* Figma 04_connection_select (헤더 아래부터) */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px var(--app-gutter) 32px;
+  background: var(--odit-surface);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-top: 4px;
+}
+
+.desc {
+  color: var(--odit-text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listTitle {
+  padding: 3px 10px;
+}
+
+.list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.record {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 16px 16px;
+  border-radius: var(--radius-16);
+  background: var(--odit-surface-soft);
+}
+
+/* 지도 썸네일: Figma는 회색 자리 표시 → 온보딩 지도와 같은 파란 격자 위에 이 이야기 노드를 찍는다 */
+.mapThumb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 110px;
+  border-radius: var(--radius-12);
+  background-color: var(--odit-blue-50);
+  background-image: radial-gradient(circle at 1.25px 1.25px, rgba(158, 190, 235, 0.45) 1.25px, transparent 1.5px);
+  background-position: 12px 12px;
+  background-size: 28px 28px;
+}
+
+.mapNode {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.mapNode img {
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  max-width: none;
+}
+
+.mapThumbLabel {
+  color: var(--odit-text-muted);
+}
+
+.recordNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-full);
+  background: var(--odit-yellow-100);
+}
+
+.exit {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+}

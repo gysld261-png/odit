@@ -1,5 +1,5 @@
 .page {
-  padding: var(--space-6) var(--app-gutter) var(--space-8);
+  padding: calc(var(--page-inset-top) + var(--space-6)) var(--app-gutter) var(--space-8);
 }
 
 .eyebrow {

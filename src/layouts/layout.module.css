@@ -4,6 +4,9 @@
  * 스크롤은 window가 아니라 이 .scroll 요소가 담당한다 (스크롤 위치 복원도 이 요소 기준).
  */
 .root {
+  /* 페이지가 스스로 비워야 하는 상단 여백. 레이아웃이 이미 비웠으면 0 */
+  --page-inset-top: 0px;
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -24,6 +27,7 @@
 
 /* 상태바 뒤까지 화면 배경을 까는 레이아웃(Auth) — 여백은 화면 안쪽(AuthScreen)이 준다 */
 .fullBleed {
+  --page-inset-top: var(--app-inset-top);
   padding-top: 0;
 }
 
@@ -43,4 +47,37 @@
 /* 떠 있는 하단 내비가 마지막 콘텐츠(배지 등)를 가리지 않게 내비 높이만큼 여백을 둔다 */
 .withBottomNav {
   padding-bottom: calc(var(--app-inset-bottom) + var(--bottom-nav-space, 96px));
+}
+
+/* 이야기 화면은 흰 바탕 (Figma 03_story_detail · 04_connection_select) */
+.detailRoot {
+  background: var(--odit-surface);
+}
+
+/* 스크롤 중 상태바 자리 바탕 (Main 레이아웃) */
+.statusScrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: var(--app-inset-top);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.statusScrim[data-visible='true'] {
+  opacity: 1;
+}
+
+/* 떠 있는 하단 내비 — 홈 인디케이터 바로 위 (Figma y 752 = 874 - 34 - 88) */
+.bottomNav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--app-inset-bottom);
+  z-index: 30;
 }

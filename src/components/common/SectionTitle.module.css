@@ -1,0 +1,24 @@
+/* Figma PathHeader: 좌우 10 · 머리말 → 제목 12 · 제목 → 설명 10 */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 10px;
+}
+
+.eyebrow {
+  color: var(--odit-text-primary);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.desc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--odit-text-primary);
+}

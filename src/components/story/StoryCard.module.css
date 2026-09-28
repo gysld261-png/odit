@@ -1,0 +1,59 @@
+.card {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 175px;
+  height: 228px;
+  padding: 14px 10px;
+  border: 1px solid var(--odit-border);
+  border-radius: var(--radius-12);
+  background: var(--odit-surface);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.top,
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 143px;
+}
+
+.top {
+  gap: 15px;
+  padding-bottom: 3px;
+}
+
+.bottom {
+  gap: 8px;
+}
+
+.eyebrow,
+.desc {
+  width: 100%;
+  overflow: hidden;
+  color: var(--odit-text-muted);
+}
+
+.eyebrow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title {
+  display: -webkit-box;
+  width: 100%;
+  overflow: hidden;
+  white-space: pre-line;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.desc {
+  white-space: pre-line;
+}
